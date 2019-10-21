@@ -21,8 +21,8 @@ public class ProductEndpoint {
         return result;
     }
 
-    @DeleteMapping("/product")
-    public void productweg(@RequestBody Product product){
-        productService.remove(product);
+    @DeleteMapping("/product/{id}")
+    public void productweg(@PathVariable long id){
+        productService.remove(id);
     }
 }
