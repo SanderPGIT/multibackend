@@ -15,8 +15,8 @@ public class ProductEndpoint {
         return productService.geefMeAlleProducten();
     }
 
-    @PostMapping("/product/{id}")
-    public Product extraproduct(@RequestBody Product product, @PathVariable long id ){
+    @PostMapping("/product")
+    public Product extraproduct(@RequestBody Product product){
         Product result = productService.save(product);
         return result;
     }
@@ -24,5 +24,12 @@ public class ProductEndpoint {
     @DeleteMapping("/product/{id}")
     public void productweg(@PathVariable long id){
         productService.remove(id);
+    }
+
+    @PutMapping("/product")
+    public Product productchange(@RequestBody Product product){
+        productService.save(product);
+        System.out.println("het is gelukt");
+        return product;
     }
 }
