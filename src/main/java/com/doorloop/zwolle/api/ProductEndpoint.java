@@ -3,10 +3,7 @@ package com.doorloop.zwolle.api;
 import com.doorloop.zwolle.domein.Product;
 import com.doorloop.zwolle.persistence.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductEndpoint {
@@ -23,4 +20,12 @@ public class ProductEndpoint {
         Product result = productService.save(product);
         return result;
     }
+
+    @DeleteMapping("/product")
+    public void productweg(@RequestBody Product product){
+        productService.remove(product);
+    }
+
+
+
 }
