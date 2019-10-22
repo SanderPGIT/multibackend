@@ -20,4 +20,9 @@ public class ProductService {
     public void remove(Long id){
         productRepository.deleteById(id);
     }
-}
+
+    public Product searchname(String string) {
+        return productRepository.searchForName(string);
+        }
+    }
+
