@@ -15,6 +15,12 @@ public class ProductEndpoint {
         return productService.geefMeAlleProducten();
     }
 
+    @GetMapping("/product/zoeknaam")
+    public Product zoekProductOpNaam(@RequestParam String naamstring){
+        Product result= productService.searchname(naamstring);
+        return result;
+    }
+
     @PostMapping("/product")
     public Product extraproduct(@RequestBody Product product){
         Product result = productService.save(product);
