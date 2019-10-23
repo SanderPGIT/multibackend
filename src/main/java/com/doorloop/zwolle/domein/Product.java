@@ -1,18 +1,17 @@
 package com.doorloop.zwolle.domein;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    private long id;
 
-    String name;
-    int stock;
+    private String name;
+    private int stock;
 
     public long getId() {
         return id;
