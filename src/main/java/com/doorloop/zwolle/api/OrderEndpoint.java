@@ -15,9 +15,24 @@ public class OrderEndpoint {
         return verkoopService.geefMeAlleBestellingen();
     }
 
-    @PostMapping("/bestelling/{bestellingid}/{productid}")
-    public Bestelling extrabestelling(@RequestBody Bestelling bestelling,@PathVariable("bestellingid") long bestellingid, @PathVariable("productid") long productid){
+    //@PostMapping("/bestelling/{bestellingid}/{productid}")
+    //public Bestelling extrabestelling(@RequestBody Bestelling bestelling,@PathVariable("bestellingid") long bestellingid, @PathVariable("productid") long productid){
+
+    @PostMapping("/bestelling")
+    public Bestelling extrabestelling(@RequestBody Bestelling bestelling){
         return verkoopService.saveBestelling(bestelling);
     }
+
+    @DeleteMapping("/bestelling/{id}")
+    public void bestellingweg(@PathVariable long id){ verkoopService.removeBestelling(id);
+    }
+
+    @PutMapping("/bestelling")
+    public Bestelling bestellingchange(@RequestBody Bestelling bestelling){
+        verkoopService.save(bestelling);
+        System.out.println("het is gelukt");
+        return bestelling;
+    }
+
 }
 
