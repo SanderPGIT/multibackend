@@ -4,6 +4,8 @@ import com.doorloop.zwolle.domein.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ProductService {
     @Autowired
@@ -12,6 +14,8 @@ public class ProductService {
     public Iterable<Product> geefMeAlleProducten(){
         return productRepository.findAll();
     }
+
+    public Optional<Product> geefproduct(Long id){ return productRepository.findById(id);}
 
     public Product save(Product product){
         return productRepository.save(product);
