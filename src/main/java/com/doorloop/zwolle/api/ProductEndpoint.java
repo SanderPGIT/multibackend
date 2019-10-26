@@ -5,6 +5,8 @@ import com.doorloop.zwolle.persistence.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class ProductEndpoint {
     @Autowired
@@ -19,6 +21,10 @@ public class ProductEndpoint {
     public Product zoekProductOpNaam(@RequestParam String naamstring){
         Product result= productService.searchname(naamstring);
         return result;
+    }
+    @GetMapping("/product/{id}")
+    public Optional<Product> getproductvanid(@PathVariable long id){
+        return productService.geefproduct(id);
     }
 
     @PostMapping("/product")
