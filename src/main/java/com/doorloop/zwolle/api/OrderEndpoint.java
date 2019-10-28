@@ -5,6 +5,8 @@ import com.doorloop.zwolle.persistence.VerkoopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class OrderEndpoint {
     @Autowired
@@ -14,6 +16,9 @@ public class OrderEndpoint {
     public Iterable<Bestelling> geefbestellingen(){
         return verkoopService.geefMeAlleBestellingen();
     }
+
+    @GetMapping("/bestelling/{id}")
+    public Optional<Bestelling> geefbestelling(@PathVariable long id){ return verkoopService.geefbestelling(id);}
 
     //@PostMapping("/bestelling/{bestellingid}/{productid}")
     //public Bestelling extrabestelling(@RequestBody Bestelling bestelling,@PathVariable("bestellingid") long bestellingid, @PathVariable("productid") long productid){

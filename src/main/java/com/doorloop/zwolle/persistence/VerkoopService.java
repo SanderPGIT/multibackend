@@ -22,6 +22,8 @@ public class VerkoopService {
         return bestellingRepository.findAll();
     }
 
+    public Optional<Bestelling> geefbestelling(Long id) { return bestellingRepository.findById(id);}
+
     public Bestelling saveBestelling(Bestelling bestelling){
         //System.out.println(bestelling.getProducts().size());
         for(int i=0; i<bestelling.getProducts().size(); i++ ){
