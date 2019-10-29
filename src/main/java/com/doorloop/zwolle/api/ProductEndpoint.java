@@ -41,7 +41,6 @@ public class ProductEndpoint {
     @PutMapping("/product")
     public Product productchange(@RequestBody Product product){
         productService.save(product);
-        System.out.println("het is gelukt");
         return product;
     }
 }

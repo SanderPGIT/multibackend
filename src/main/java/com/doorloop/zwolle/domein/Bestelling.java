@@ -14,6 +14,9 @@ public class Bestelling {
     @ManyToMany
     private List<Product> products = new ArrayList<>();
 
+    @ManyToOne
+    private Klant deklant;
+
     private int aantal;
 
     public long getId() {
@@ -34,6 +37,14 @@ public class Bestelling {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public Klant getDeklant() {
+        return deklant;
+    }
+
+    public void setDeklant(Klant deklant) {
+        this.deklant = deklant;
     }
 
     public void setProducts(List<Product> products) {
