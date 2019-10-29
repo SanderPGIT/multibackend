@@ -13,6 +13,9 @@ import java.util.Optional;
 @Service
 public class VerkoopService {
     @Autowired
+    KlantRepository klantRepository;
+
+    @Autowired
     BestellingRepository bestellingRepository;
 
     @Autowired

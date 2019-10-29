@@ -20,9 +20,6 @@ public class OrderEndpoint {
     @GetMapping("/bestelling/{id}")
     public Optional<Bestelling> geefbestelling(@PathVariable long id){ return verkoopService.geefbestelling(id);}
 
-    //@PostMapping("/bestelling/{bestellingid}/{productid}")
-    //public Bestelling extrabestelling(@RequestBody Bestelling bestelling,@PathVariable("bestellingid") long bestellingid, @PathVariable("productid") long productid){
-
     @PostMapping("/bestelling")
     public Bestelling extrabestelling(@RequestBody Bestelling bestelling){
         return verkoopService.saveBestelling(bestelling);
@@ -35,7 +32,6 @@ public class OrderEndpoint {
     @PutMapping("/bestelling")
     public Bestelling bestellingchange(@RequestBody Bestelling bestelling){
         verkoopService.save(bestelling);
-        System.out.println("het is gelukt");
         return bestelling;
     }
 
