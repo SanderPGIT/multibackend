@@ -12,6 +12,16 @@ public class Product {
 
     private String name;
     private int stock;
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] datafoto;
+
+    public byte[] getDatafoto() {
+        return datafoto;
+    }
+
+    public void setDatafoto(byte[] datafoto) {
+        this.datafoto = datafoto;
+    }
 
     public long getId() {
         return id;

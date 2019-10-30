@@ -1,6 +1,7 @@
 package com.doorloop.zwolle.persistence;
 
 import com.doorloop.zwolle.domein.Product;
+import javassist.bytecode.ByteArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,7 @@ public class ProductService {
     public Product searchname(String string) {
         return productRepository.searchForName(string);
         }
+
+
     }
 
