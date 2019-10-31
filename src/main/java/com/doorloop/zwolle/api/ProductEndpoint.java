@@ -44,4 +44,9 @@ public class ProductEndpoint {
         System.out.println("het is gelukt");
         return product;
     }
+
+    @GetMapping("/order/{id}")
+    public Optional<Product> getProductVanId(@PathVariable long id){
+        return productService.geefproduct(id);
+    }
 }

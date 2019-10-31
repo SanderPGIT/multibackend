@@ -13,6 +13,8 @@ public class Product {
     private String name;
     private int stock;
 
+
+
     public long getId() {
         return id;
     }
