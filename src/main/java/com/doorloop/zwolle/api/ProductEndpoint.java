@@ -49,19 +49,6 @@ public class ProductEndpoint {
         productService.save(zonderafbeelding.get());
     }
 
-/*    @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String handleFormUpload(
-            @RequestParam("file") MultipartFile file) throws IOException {
-        if (!file.isEmpty()) {
-            BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
-            File destination = new File("./abc"); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
-            ImageIO.write(src, "png", destination);
-            //Save the id you have used to create the file name in the DB. You can retrieve the image in future with the ID.
-        }
-        return "gangster";
-    }*/
-
-
     @DeleteMapping("/product/{id}")
     public void productweg(@PathVariable long id) {
         productService.remove(id);
