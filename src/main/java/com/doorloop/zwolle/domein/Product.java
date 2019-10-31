@@ -23,6 +23,8 @@ public class Product {
         this.datafoto = datafoto;
     }
 
+
+
     public long getId() {
         return id;
     }
