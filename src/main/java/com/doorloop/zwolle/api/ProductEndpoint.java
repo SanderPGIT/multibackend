@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,8 +26,8 @@ public class ProductEndpoint {
     }
 
     @GetMapping("/product/zoeknaam")
-    public Product zoekProductOpNaam(@RequestParam String naamstring) {
-        Product result = productService.searchname(naamstring);
+    public List<Product> zoekProductOpNaam(@RequestParam String naamstring) {
+        List<Product> result = productService.searchname(naamstring);
         return result;
     }
 

@@ -5,6 +5,7 @@ import javassist.bytecode.ByteArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +27,7 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public Product searchname(String string) {
+    public List<Product> searchname(String string) {
         return productRepository.searchForName(string);
         }
 

@@ -5,12 +5,16 @@ import com.doorloop.zwolle.persistence.KlantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class KlantEndpoint {
     @Autowired
     KlantService klantService;
+
+   // @GetMapping("/klant/{woonplaats}")
+   // public List<Klant> findByWoonplaats (@)
 
     @GetMapping("/klant")
     public Iterable<Klant> geefKlanten(){ return klantService.geefMeAlleKlanten();}

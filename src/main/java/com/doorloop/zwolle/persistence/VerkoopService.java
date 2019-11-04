@@ -3,10 +3,10 @@
 package com.doorloop.zwolle.persistence;
 
 import com.doorloop.zwolle.domein.Bestelling;
-import com.doorloop.zwolle.domein.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -95,6 +95,17 @@ public class VerkoopService {
             }
         }
         return bestellingRepository.save(bestelling);
+    }
+
+    public List<Bestelling> searchKlantbestelling(Long klantid) {
+        List<Bestelling> gevondenBestelling = new ArrayList<>();
+        Iterable<Bestelling> bestellingen = bestellingRepository.findAll();
+        for (Bestelling bestellinguitrepo : bestellingen) {
+            if (bestellinguitrepo.getDeklant().getKlantid() == klantid) {
+                gevondenBestelling.add(bestellinguitrepo);
+            }
+        }
+        return gevondenBestelling;
     }
 }
 

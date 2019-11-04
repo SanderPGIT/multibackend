@@ -4,12 +4,22 @@ import com.doorloop.zwolle.domein.Klant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class KlantService {
     @Autowired
     KlantRepository klantRepository;
+
+  /*  public List<Klant> findByWoonplaats(String plaats) {
+        List<Klant> klanten = new ArrayList<>();
+        klantRepository.findByWoonplaats(plaats).forEach(klant -> {
+            klanten.add(new Klant(klant));
+        });
+        return klanten;
+    }*/
 
     public Iterable<Klant> geefMeAlleKlanten(){ return klantRepository.findAll(); }
 
