@@ -21,6 +21,12 @@ public class SupplierEndpoint {
         return result;
     }
 
+    @PutMapping("/supplier/{supplierid}/{productid}")
+    public Supplier linkSupplier(@PathVariable long supplierid, @PathVariable long productid){
+        Supplier result = supplierService.linkSupplier(supplierid, productid);
+        return result;
+    }
+
     @DeleteMapping("/supplier/{id}")
     public void delSupplier(@PathVariable long id){
         supplierService.delSupplier(id);

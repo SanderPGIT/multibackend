@@ -16,9 +16,9 @@ public class SupplyOrderEndpoint {
         return supplyOrderService.geefOrders();
     }
 
-    @PostMapping("/supplyOrder/{supplierId}")
-    public SupplyOrder newOrder(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId){
-        SupplyOrder result = supplyOrderService.addOrder(supplyOrder, supplierId);
+    @PostMapping("/supplyOrder/{supplierId}/{productId}")
+    public SupplyOrder newOrder(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId, @PathVariable long productId){
+        SupplyOrder result = supplyOrderService.addOrder(supplyOrder, supplierId, productId);
         return result;
     }
 
@@ -27,9 +27,9 @@ public class SupplyOrderEndpoint {
         supplyOrderService.delOrder(id);
     }
 
-    @PutMapping("/supplyOrder/{supplierId}")
-    public SupplyOrder pasOrderAan(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId){
-        SupplyOrder result = supplyOrderService.addOrder(supplyOrder, supplierId);
+    @PutMapping("/supplyOrder/{supplierId}/{productId}")
+    public SupplyOrder pasOrderAan(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId, @PathVariable long productId){
+        SupplyOrder result = supplyOrderService.addOrder(supplyOrder, supplierId, productId);
         return result;
 
     }
