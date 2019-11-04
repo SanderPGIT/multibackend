@@ -15,6 +15,7 @@ public class Product {
     @Column(columnDefinition = "LONGBLOB")
     private byte[] datafoto;
 
+
     public byte[] getDatafoto() {
         return datafoto;
     }

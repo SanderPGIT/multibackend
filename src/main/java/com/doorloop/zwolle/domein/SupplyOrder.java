@@ -14,6 +14,16 @@ public class SupplyOrder {
     boolean Delivered;
     @OneToOne
     Supplier supplier;
+    @OneToOne
+    Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public long getId() {
         return id;
