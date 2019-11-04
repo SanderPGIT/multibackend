@@ -1,9 +1,6 @@
 package com.doorloop.zwolle.domein;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -13,8 +10,16 @@ public class Supplier {
 
     long id;
     String name;
-    String productType;
+    @OneToMany
+    List<Product> products;
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public long getId() {
         return id;
@@ -32,11 +37,4 @@ public class Supplier {
         this.name = name;
     }
 
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
 }
