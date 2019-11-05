@@ -13,8 +13,8 @@ public class KlantEndpoint {
     @Autowired
     KlantService klantService;
 
-   // @GetMapping("/klant/{woonplaats}")
-   // public List<Klant> findByWoonplaats (@)
+    @GetMapping("/klant/plaats/{woonplaats}")
+    public List<Klant> findByWoonplaats (@PathVariable String woonplaats){return klantService.findByWoonplaats(woonplaats);}
 
     @GetMapping("/klant")
     public Iterable<Klant> geefKlanten(){ return klantService.geefMeAlleKlanten();}

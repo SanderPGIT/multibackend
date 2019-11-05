@@ -13,13 +13,13 @@ public class KlantService {
     @Autowired
     KlantRepository klantRepository;
 
-  /*  public List<Klant> findByWoonplaats(String plaats) {
+    public List<Klant> findByWoonplaats(String plaats) {
         List<Klant> klanten = new ArrayList<>();
         klantRepository.findByWoonplaats(plaats).forEach(klant -> {
-            klanten.add(new Klant(klant));
+            klanten.add(klant);
         });
         return klanten;
-    }*/
+    }
 
     public Iterable<Klant> geefMeAlleKlanten(){ return klantRepository.findAll(); }
 
