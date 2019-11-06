@@ -1,5 +1,6 @@
 package com.doorloop.zwolle.api;
 
+import com.doorloop.zwolle.domein.Product;
 import com.doorloop.zwolle.domein.Supplier;
 import com.doorloop.zwolle.persistence.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class SupplierEndpoint {
         Supplier result = supplierService.addSupplier(supplier);
         return result;
 
+    }
+
+    @GetMapping("/supplier/{id}")
+    public Supplier geefSupplierByProduct(@PathVariable long id){
+        return supplierService.geefSupplierByProduct(id);
     }
 }
