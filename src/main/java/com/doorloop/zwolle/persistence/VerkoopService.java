@@ -98,6 +98,7 @@ public class VerkoopService {
     }
 
     public List<Bestelling> searchKlantbestelling(Long klantid) {
+        System.out.println(klantid);
         List<Bestelling> gevondenBestelling = new ArrayList<>();
         Iterable<Bestelling> bestellingen = bestellingRepository.findAll();
         for (Bestelling bestellinguitrepo : bestellingen) {
