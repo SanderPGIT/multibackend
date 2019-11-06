@@ -31,4 +31,19 @@ public class SupplierService {
     public void delSupplier(Long id){
         supplierRepository.deleteById(id);
     }
+
+    public Supplier geefSupplierByProduct(long id){
+        //System.out.println(product.getName());
+        Product product = productRepository.findById(id).get();
+        Iterable<Supplier> leveraars = supplierRepository.findAll();
+        for(Supplier supplierUitRepo:leveraars){
+            for(int i=0;i<supplierUitRepo.getProducts().size();i++){
+                if(supplierUitRepo.getProducts().get(i)==product){
+                    return supplierUitRepo;
+                }
+            }
+
+        }
+        return null;
+    }
 }
