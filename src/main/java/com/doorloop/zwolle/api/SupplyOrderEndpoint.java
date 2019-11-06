@@ -16,11 +16,12 @@ public class SupplyOrderEndpoint {
         return supplyOrderService.geefOrders();
     }
 
-    @PostMapping("/supplyOrder/{supplierId}/product")
-    public SupplyOrder newOrder(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId, @RequestParam long productId){
+    @PostMapping("/supplyOrder/{supplierId}/{productId}")
+    public SupplyOrder newOrder(@RequestBody SupplyOrder supplyOrder, @PathVariable long supplierId, @PathVariable long productId){
         SupplyOrder result = supplyOrderService.addOrder(supplyOrder, supplierId, productId);
         return result;
     }
+
 
     @DeleteMapping("/supplyOrder/{id}")
     public void delOrder(@PathVariable long id){
